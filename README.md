@@ -10,6 +10,13 @@ A cross-platform (Expo + React Native) mobile application for tracking household
 
 ## Getting started
 ```bash
+nvm use
 npm install
 npm run start
 ```
+
+## Troubleshooting
+### Windows: `ENOENT ... .expo\\metro\\externals\\node:sea`
+This error is caused by Node.js versions that include the `node:sea` builtin module. Expo CLI attempts
+to create a shim directory with a colon in the name, which is invalid on Windows. Use Node.js 18.x
+(`nvm use` will load the pinned version in `.nvmrc`), then reinstall dependencies and retry.
